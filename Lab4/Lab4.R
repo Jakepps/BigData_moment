@@ -2,6 +2,7 @@
 df_m <- read.csv("lab4_parus_m.csv", fileEncoding = "Windows-1251", header = TRUE, sep = ";", check.names = F)
 df_f<-read.csv("lab4_parus_f.csv", fileEncoding = "Windows-1251", header = TRUE, sep = ";", check.names = F)
 
+#посчитаем суммув всех медалей
 stat_places_m <- sapply(df_m[,-1], sum)
 stat_places_f <- sapply(df_f[,-1], sum)
 
@@ -9,7 +10,7 @@ par(mfrow=c(1,2))
 barplot(stat_places_m, names=c(1:8), col="coral", xlab="Место", ylab="Количество", main="Мужчины (за все время)")
 barplot(stat_places_f, names=c(1:8), col="coral", xlab="Место", ylab="Количество", main="Женщины (за все время)")
 
-
+#сделаем фреймы только 1 мест
 first_m <- df_m[,c(1:2)][df_m$X1 > 0, ]
 first_f <- df_f[,c(1:2)][df_f$X1 > 0, ]
 
@@ -19,6 +20,7 @@ legend(-1.1, 1.1, first_m$Год, cex = 0.7, fill=rainbow(length(first_m$Год)
 pie(first_f$X1, labels=first_f$X1, col=rainbow(length(first_f$X1)), main = "Количество золотых медалей (женщины)\nза все время")
 legend(-1, 1, first_f$Год, cex = 0.7, fill=rainbow(length(first_f$Год)))
 
+#выделим призовые места
 prize_m <- data.frame(Год=df_m$Год, Призовых=rowSums(df_m[, 2:4]))
 prize_f <- data.frame(Год=df_f$Год, Призовых=rowSums(df_f[, 2:4]))
 
@@ -39,10 +41,8 @@ lines(events_gold$Год, events_gold$Великобритания, type="o", pc
 lines(events_gold$Год, events_gold$Россия, type="o", pch=19, col="gray70")
 lines(events_gold$Год, events_gold$Австралия, type="o", pch=19, col="#2e3c54")
 lines(events_gold$Год, events_gold$Нидерланды, type="o", pch=19, col="brown")
-
 axis(side=1, at=events_gold$Год)
 legend(max(events_gold$Год) - 1.5, 53, c("США", "Китай", "Япония", "Великобритания", "Россия", "Австралия", "Нидерланды"), fill=c("#3be8b0", "#1aafd0", "#6a67ce", "#ffb900", "gray70", "#2e3c54", "brown"))
-
 
 
 events_prizes <- read.csv("priz.csv", fileEncoding = "Windows-1251", header = TRUE, sep = ";", check.names = F)
@@ -54,11 +54,10 @@ lines(events_prizes$Год, events_prizes$Великобритания, type="o"
 lines(events_prizes$Год, events_prizes$Россия, type="o", pch=19, col="gray70")
 lines(events_prizes$Год, events_prizes$Австралия, type="o", pch=19, col="#2e3c54")
 lines(events_prizes$Год, events_prizes$Нидерланды, type="o", pch=19, col="brown")
-
 axis(side=1, at=events_prizes$Год)
 legend(max(events_prizes$Год) - 1, 137, c("США", "Китай", "Япония", "Великобритания", "Россия", "Австралия", "Нидерланды"), fill=c("#3be8b0", "#1aafd0", "#6a67ce", "#ffb900", "gray70", "#2e3c54", "brown"))
 
-
+#выделим призовые места за последние 6 лет
 prize_6_m <- tail(prize_m, 6)
 prize_6_f <- tail(prize_f, 6)
 
