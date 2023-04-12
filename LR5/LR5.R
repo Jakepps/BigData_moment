@@ -51,7 +51,7 @@ df_15<-df_15[, 3:11]
 df_14<-df_14[, 3:11]
 
 # Германия, Британия, Греция, Румыния, Норвегия
-country<-c('Germany', 'United Kingdom', 'Greece', 'Germany', 'Norway')
+country<-c('Germany', 'United Kingdom', 'Greece', 'Romania', 'Norway')
 
 # оценка индекса качества жизни
 evaluation_of<-'Quality of Life Index'
@@ -78,7 +78,7 @@ plot(2014:2021, QLI$'Germany', xlab='Года', ylab='Индекс качест�
 
 lines(2014:2021, QLI$'United Kingdom', type='b', col='green', lty=1, pch=1, lwd=2)
 lines(2014:2021, QLI$'Greece', type='b', col='red', lty=1, pch=1, lwd=2)
-lines(2014:2021, QLI$'Germany', type='b', col='purple', lty=1, pch=1, lwd=2)
+lines(2014:2021, QLI$'Romania', type='b', col='purple', lty=1, pch=1, lwd=2)
 lines(2014:2021, QLI$'Norway', type='b', col='gold', lty=1, pch=1, lwd=2)
 legend('bottomright', cex=0.7,country, fill= c('blue', 'green', 'red', 'purple', 'gold'))
 
@@ -107,7 +107,7 @@ plot( 2014:2021, PPI$'Germany', xlab='Года', ylab='Индекс покупа
 
 lines(2014:2021, PPI$'United Kingdom', type='b', col='green', lty=1, pch=1, lwd=2)
 lines(2014:2021, PPI$'Greece', type='b', col='red', lty=1, pch=1, lwd=2)
-lines(2014:2021, PPI$'Germany', type='b', col='purple', lty=1, pch=1, lwd=2)
+lines(2014:2021, PPI$'Romania', type='b', col='purple', lty=1, pch=1, lwd=2)
 lines(2014:2021, PPI$'Norway', type='b', col='gold', lty=1, pch=1, lwd=2)
 
 legend('topright', cex=0.7, country,fill=c('blue', 'green', 'red', 'purple', 'gold'))
@@ -137,7 +137,7 @@ plot( 2014:2021, SI$'Germany', xlab='Года', ylab='Индекс безопа�
 
 lines(2014:2021, SI$'United Kingdom', type='b', col='green', lty=1, pch=1, lwd=2)
 lines(2014:2021, SI$'Greece', type='b', col='red', lty=1, pch=1, lwd=2)
-lines(2014:2021, SI$'Germany', type='b', col='purple', lty=1, pch=1, lwd=2)
+lines(2014:2021, SI$'Romania', type='b', col='purple', lty=1, pch=1, lwd=2)
 lines(2014:2021, SI$'Norway', type='b', col='gold', lty=1, pch=1, lwd=2)
 
 legend('topright', cex=0.6, country,fill=c('blue', 'green', 'red', 'purple', 'gold'))
@@ -167,7 +167,7 @@ plot(2014:2021, HCI$'Germany', xlab='Года', ylab='Индекс медици�
 
 lines(2014:2021, HCI$'United Kingdom', type='b', col='green', lty=1, pch=1, lwd=2)
 lines(2014:2021, HCI$'Greece', type='b', col='red', lty=1, pch=1, lwd=2)
-lines(2014:2021, HCI$'Germany', type='b', col='purple', lty=1, pch=1, lwd=2)
+lines(2014:2021, HCI$'Romania', type='b', col='purple', lty=1, pch=1, lwd=2)
 lines(2014:2021, HCI$'Norway', type='b', col='gold', lty=1, pch=1, lwd=2)
 
 legend('bottomright', cex=0.6, country,fill=c('blue', 'green', 'red', 'purple', 'gold'))
@@ -197,7 +197,7 @@ plot(2014:2021, CLI$'Germany', xlab='Года', ylab='Индекс прожит�
 
 lines(2014:2021, CLI$'United Kingdom', type='b', col='green', lty=1, pch=1, lwd=2)
 lines(2014:2021, CLI$'Greece', type='b', col='red', lty=1, pch=1, lwd=2)
-lines(2014:2021, CLI$'Germany', type='b', col='purple', lty=1, pch=1, lwd=2)
+lines(2014:2021, CLI$'Romania', type='b', col='purple', lty=1, pch=1, lwd=2)
 lines(2014:2021, CLI$'Norway', type='b', col='gold', lty=1, pch=1, lwd=2)
 
 legend('topright', cex=0.7, country,fill=c('blue', 'green', 'red', 'purple', 'gold'))
@@ -226,7 +226,7 @@ plot( 2014:2021, PPIR$'Germany', xlab='Года', ylab='Отношение це�
 
 lines(2014:2021, PPIR$'United Kingdom', type='b', col='green', lty=1, pch=1, lwd=2)
 lines(2014:2021, PPIR$'Greece', type='b', col='red', lty=1, pch=1, lwd=2)
-lines(2014:2021, PPIR$'Germany', type='b', col='purple', lty=1, pch=1, lwd=2)
+lines(2014:2021, PPIR$'Romania', type='b', col='purple', lty=1, pch=1, lwd=2)
 lines(2014:2021, PPIR$'Norway', type='b', col='gold', lty=1, pch=1, lwd=2)
 
 legend('topright', cex=0.7, country,fill=c('blue', 'green', 'red', 'purple', 'gold'))
@@ -256,7 +256,7 @@ plot( 2014:2021, TCTI$'Germany', xlab='Года', ylab='Индекс време�
 
 lines(2014:2021, TCTI$'United Kingdom', type='b', col='green', lty=1, pch=1, lwd=2)
 lines(2014:2021, TCTI$'Greece', type='b', col='red', lty=1, pch=1, lwd=2)
-lines(2014:2021, TCTI$'Germany', type='b', col='purple', lty=1, pch=1, lwd=2)
+lines(2014:2021, TCTI$'Romania', type='b', col='purple', lty=1, pch=1, lwd=2)
 lines(2014:2021, TCTI$'Norway', type='b', col='gold', lty=1, pch=1, lwd=2)
 
 legend('topright', cex=0.7, country,fill=c('blue', 'green', 'red', 'purple', 'gold'))
@@ -286,7 +286,7 @@ plot( 2014:2021, PI$'Germany', xlab='Года', ylab='Индекс загряз�
 
 lines(2014:2021, PI$'United Kingdom', type='b', col='green', lty=1, pch=1, lwd=2)
 lines(2014:2021, PI$'Greece', type='b', col='red', lty=1, pch=1, lwd=2)
-lines(2014:2021, PI$'Germany', type='b', col='purple', lty=1, pch=1, lwd=2)
+lines(2014:2021, PI$'Romania', type='b', col='purple', lty=1, pch=1, lwd=2)
 lines(2014:2021, PI$'Norway', type='b', col='gold', lty=1, pch=1, lwd=2)
 
 legend('topright', cex=0.6, country,fill=c('blue', 'green', 'red', 'purple', 'gold'))
@@ -315,7 +315,7 @@ plot( 2016:2021, CI$'Germany', xlab='Года', ylab='Климатический
 
 lines(2016:2021, CI$'United Kingdom', type='b', col='green', lty=1, pch=1, lwd=2)
 lines(2016:2021, CI$'Greece', type='b', col='red', lty=1, pch=1, lwd=2)
-lines(2016:2021, CI$'Germany', type='b', col='purple', lty=1, pch=1, lwd=2)
+lines(2016:2021, CI$'Romania', type='b', col='purple', lty=1, pch=1, lwd=2)
 lines(2016:2021, CI$'Norway', type='b', col='gold', lty=1, pch=1, lwd=2)
 
 legend('bottomright', cex=0.7, country,fill=c('blue', 'green', 'red', 'purple', 'gold'))
