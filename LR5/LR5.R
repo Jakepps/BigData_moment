@@ -1,4 +1,4 @@
-install.packages("rvest")
+#install.packages("rvest")
 library(rvest)
 
 # уровень жизни стран мира по годам
