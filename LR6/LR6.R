@@ -6,7 +6,8 @@ library(dplyr)
 library(tidyr)
 library(tibble)
 
-inf1 <- read.csv("C:/Users/nagal/OneDrive/GitHub/BigData_moment/LR6/CPS1985.csv")
+#inf1 <- read.csv("C:/Users/nagal/OneDrive/GitHub/BigData_moment/LR6/CPS1985.csv")
+inf1 <- read.csv("C:/Users/jakep/GitHub/BigData_moment/LR6/CPS1985.csv")
 inf1 <- inf1[,-8]
 
 # Шаг 2. Удаление пропущенных значений
