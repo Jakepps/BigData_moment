@@ -154,6 +154,7 @@ inf123 %>%
 #ЧАСТЬ 2 
 
 city.01 <- read.csv("C:/Users/nagal/OneDrive/GitHub/BigData_moment/LR6/CPS1985.csv")
+city.01
 city.01 <- city.01[,-8]
 
 #   Шаг 2.  Удаление пропущенных значений
@@ -162,14 +163,18 @@ city.01$dohod[city.01$dohod==-9999] <- NA
 city.01 <- na.omit(city.01)
 
 my_data<-city.01[,-8]
+my_data
+groups
 my_data$Group<- c(as.factor(groups))
 
 naive_df <- NaiveBayes(my_data$Group ~ ., data = my_data) 
 naive_df$tables 
 naive_df$tables$Work
+naive_df
 
 #делаем графики по байсу
 opar=par() 
+opar
 layout(matrix(c(1,2,3,4), 2, 2)) 
 plot(naive_df, lwd = 2, legendplot = FALSE)
 legend("topleft",lty=1:3, cex=0.5)
@@ -186,11 +191,12 @@ nrow(trainData)
 nrow(testData)
 nrow(my_data)
 
+my_data
 myFormula <- Group ~ rozhdaem + smertnost + detsk_smertm + dlit_muzh + dlit_zhen + dohod
 df_ctree <- ctree(myFormula, data=trainData)
+df_ctree
 table(predict(df_ctree), trainData$Group) 
 predict(df_ctree)
-plot(predict(df_ctree))
 plot(df_ctree)
 
 #Алгоритм Random Forest 
@@ -198,3 +204,4 @@ plot(df_ctree)
 rf <- randomForest(Group ~ .,data=trainData, ntree=100, proximity=TRUE)
 table(predict(rf), trainData$Group)
 print(rf)
+
