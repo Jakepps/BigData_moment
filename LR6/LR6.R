@@ -5,9 +5,15 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 library(tibble)
+install.packages("vctrs")
+install.packages('tibble', repos = 'http://cran.rstudio.com/', type = 'source')
+library(klaR)
+library(party)
+library(randomForest) 
 
-#inf1 <- read.csv("C:/Users/nagal/OneDrive/GitHub/BigData_moment/LR6/CPS1985.csv")
-inf1 <- read.csv("C:/Users/jakep/GitHub/BigData_moment/LR6/CPS1985.csv")
+#ЧАСТЬ 1
+inf1 <- read.csv("C:/Users/nagal/OneDrive/GitHub/BigData_moment/LR6/CPS1985.csv")
+#inf1 <- read.csv("C:/Users/jakep/GitHub/BigData_moment/LR6/CPS1985.csv")
 inf1 <- inf1[,-8]
 
 # Шаг 2. Удаление пропущенных значений
@@ -144,3 +150,51 @@ packages <- c('ggplot2', 'dplyr', 'tidyr', 'tibble')
 
 inf123 %>%
   ggplot(aes(rozhdaem, smertnost, color=Group))+geom_point()
+
+#ЧАСТЬ 2 
+
+city.01 <- read.csv("C:/Users/nagal/OneDrive/GitHub/BigData_moment/LR6/CPS1985.csv")
+city.01 <- city.01[,-8]
+
+#   Шаг 2.  Удаление пропущенных значений
+
+city.01$dohod[city.01$dohod==-9999] <- NA
+city.01 <- na.omit(city.01)
+
+my_data<-city.01[,-8]
+my_data$Group<- c(as.factor(groups))
+
+naive_df <- NaiveBayes(my_data$Group ~ ., data = my_data) 
+naive_df$tables 
+naive_df$tables$Work
+
+#делаем графики по байсу
+opar=par() 
+layout(matrix(c(1,2,3,4), 2, 2)) 
+plot(naive_df, lwd = 2, legendplot = FALSE)
+legend("topleft",lty=1:3, cex=0.5)
+#восстановление
+par=opar
+
+# Классификация Decision Tree
+
+set.seed(1234)
+ind <- sample(2, nrow(my_data), replace=TRUE, prob=c(0.7, 0.3))
+trainData <- my_data[ind==1,]
+testData <- my_data[ind==2,] 
+nrow(trainData)
+nrow(testData)
+nrow(my_data)
+
+myFormula <- Group ~ rozhdaem + smertnost + detsk_smertm + dlit_muzh + dlit_zhen + dohod
+df_ctree <- ctree(myFormula, data=trainData)
+table(predict(df_ctree), trainData$Group) 
+predict(df_ctree)
+plot(predict(df_ctree))
+plot(df_ctree)
+
+#Алгоритм Random Forest 
+
+rf <- randomForest(Group ~ .,data=trainData, ntree=100, proximity=TRUE)
+table(predict(rf), trainData$Group)
+print(rf)
