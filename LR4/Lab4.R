@@ -1,7 +1,7 @@
 setwd("C:/Users/jakep/GitHub/BigData_moment/Lab4")
 
-df_m <- read.csv("lab4_parus_m.csv", fileEncoding = "Windows-1251", header = TRUE, sep = ";", check.names = F)
-df_f<-read.csv("lab4_parus_f.csv", fileEncoding = "Windows-1251", header = TRUE, sep = ";", check.names = F)
+df_m <- read.csv("C:/Users/jakep/GitHub/BigData_moment/Lab4/lab4_parus_m.csv", fileEncoding = "Windows-1251", header = TRUE, sep = ";", check.names = F)
+df_f<-read.csv("C:/Users/jakep/GitHub/BigData_moment/Lab4/lab4_parus_f.csv", fileEncoding = "Windows-1251", header = TRUE, sep = ";", check.names = F)
 
 #посчитаем сумму всех медалей
 stat_places_m <- sapply(df_m[,-1], sum)
