@@ -34,7 +34,7 @@ qqline(x, col=4, lwd=2)
 #title(main="Квантильно-квантильный график", xlab="Выборочные квантили", ylab="Теоретические квантили")
 
 # Тест Стьюдента.
-t.test(x, mu=50, conf.int=TRUE)
+t.test(x, mu=70, conf.int=TRUE)
 
 # Тест Уилкоксона.
 wilcox.test(x, mu=mean(x), conf.int=TRUE)
@@ -67,8 +67,4 @@ qqline(x4, col=4, lwd=2)
 fligner.test(wrest_gymnast$Weight~wrest_gymnast$Sport, wrest_gymnast)
 
 # проверка на отсутствие разницы в среднестатистическом значении 
-t.test(wrest_gymnast$Weight~wrest_gymnast$Sport)
 t.test(wrest_gymnast$Weight~wrest_gymnast$Sport, paired=FALSE, var.equal=TRUE)
-
-
-
