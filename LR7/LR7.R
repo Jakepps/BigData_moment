@@ -2,6 +2,7 @@
 
 # импорт данных (все спортсмены по всем видам спорта)
 df <- read.table("C:/Users/nagal/OneDrive/GitHub/BigData_moment/LR7/athlete_events.csv", sep=",", header=TRUE)
+#df <- read.table("C:/Users/jakep/GitHub/BigData_moment/LR7/athlete_events.csv", sep=",", header=TRUE)
 
 wrestling<-df[which(df[, "Sport"]=="Wrestling"), c("Name", "Sex", "Weight", "Sport")]
 
