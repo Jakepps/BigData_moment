@@ -30,6 +30,7 @@ for (i in 5:34) {
   VVP[i-4]=data_set[2,i]
   
 }
+
 # построение графика прироста ВВП
 plot(years, VVP, xlab='Год', ylab='Прирост, %', main='Прирост ВВП во Франции',type='b', lty=1, pch=1,  lwd=2)
 
