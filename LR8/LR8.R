@@ -1,10 +1,11 @@
 #install.packages(pkgs=c("ellipse"))
-#install.packages("car")
+#+install.packages("car")
 library(car)
 library(ellipse)
 
 # импорт данных
 df1 <- read.csv("C:/Users/nagal/OneDrive/GitHub/BigData_moment/LR8/LR8_dataset.csv", sep = "," , header = TRUE)
+df1 <- read.csv("C:/Users/jakep/GitHub/BigData_moment/LR8/LR8_dataset.csv", sep = "," , header = TRUE)
 years=1989:2018
 
 # выборка данных по данной стране
